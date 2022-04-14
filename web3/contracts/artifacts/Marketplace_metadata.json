@@ -197,11 +197,6 @@
 						"type": "string"
 					},
 					{
-						"internalType": "address payable",
-						"name": "_seller",
-						"type": "address"
-					},
-					{
 						"internalType": "uint256",
 						"name": "_price",
 						"type": "uint256"
@@ -215,6 +210,11 @@
 						"internalType": "uint8",
 						"name": "_quantity",
 						"type": "uint8"
+					},
+					{
+						"internalType": "bool",
+						"name": "_isActive",
+						"type": "bool"
 					}
 				],
 				"name": "createMarketItem",
@@ -233,9 +233,9 @@
 				"name": "getAverageStars",
 				"outputs": [
 					{
-						"internalType": "uint8",
+						"internalType": "uint256",
 						"name": "",
-						"type": "uint8"
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -265,6 +265,11 @@
 						"internalType": "uint256",
 						"name": "price",
 						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "isActive",
+						"type": "bool"
 					}
 				],
 				"stateMutability": "view",
@@ -289,11 +294,6 @@
 						"internalType": "string",
 						"name": "imageUrl",
 						"type": "string"
-					},
-					{
-						"internalType": "uint8",
-						"name": "stars",
-						"type": "uint8"
 					},
 					{
 						"internalType": "uint8",
@@ -441,6 +441,42 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_itemId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "_isBlocked",
+						"type": "bool"
+					}
+				],
+				"name": "updateBlockMarketItem",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_itemId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "_isActive",
+						"type": "bool"
+					}
+				],
+				"name": "updateMarketItemActive",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -629,11 +665,11 @@
 			]
 		},
 		"Marketplace.sol": {
-			"keccak256": "0xfcbf36f5d8c53dd0fbe71470d85d0ce8071ef404c4a04c4d7c8c427cd48569b2",
+			"keccak256": "0xf819e04d1d1fec372dbecf787262729a55f54e88fcf00fccd29248da35b354f8",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://e9b627a558ca326639e53a78a43af619c20195700b6139d4aedef0392904f204",
-				"dweb:/ipfs/QmUAtdgVjcDbiJ3yJET2PkERqzasfFSfBrmP1AzaKGwh8B"
+				"bzz-raw://fada94ae2e3d61e26dda20fd503917d8243438441960760b4dbe8daaf003d502",
+				"dweb:/ipfs/QmPz7k57FVBruf4pQoveNVandf61AYvnL5ARP1ntRfg5NL"
 			]
 		}
 	},

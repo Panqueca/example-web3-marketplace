@@ -46,7 +46,6 @@ contract Marketplace is  AccessControl {
         _;
     }
 
-
     function createMarketItem(string memory _title, string memory _description, uint256 _price, string memory _imageUrl, uint8 _quantity, bool _isActive) public {
         require(_price > 0, "Price must be greater than 0");
         idToMarketItem[nextItemId] = MarketItem(nextItemId, _title, _description, _price, payable(msg.sender), _imageUrl, _quantity, block.timestamp, block.timestamp, _isActive, false);

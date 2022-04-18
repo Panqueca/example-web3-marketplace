@@ -1,0 +1,34 @@
+.product-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.product-card {
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.product-card .title {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 5px 0px;
+}
+
+.product-card .price {
+  font-size: 14px;
+  font-weight: 500;
+  color: #00a528;
+}
+
+.product-card .seller {
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.product-card .image {
+  width: 100%;
+}

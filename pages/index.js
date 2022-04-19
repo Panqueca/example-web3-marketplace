@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
+import { ethers } from 'ethers'
 import Header from './components/Header'
 import FilterContainer from './components/FilterContainer'
-import { ethers } from 'ethers'
+import ProductShowcase from './components/ProductShowcase/ProductShowcase'
 import { CONTRACT_ADDRESS, CONTRACT_ABI } from './contracts/Marketplace'
 
 export function convertABI(ABI) {
@@ -22,7 +23,7 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false)
   const [products, setProducts] = useState([])
 
-  async function start() {
+  async function fetchProducts() {
     setIsLoading(true)
     const contract = getMarketplaceContract()
     const nextItemId = await contract.nextItemId()
@@ -40,36 +41,14 @@ export default function Home() {
   }
 
   useEffect(() => {
-    start()
+    fetchProducts()
   }, [])
 
   return (
     <div>
       <Header />
       <FilterContainer />
-      <div className="product-container">
-        {isLoading
-          ? 'Loading...'
-          : products.map(product => (
-              <div
-                key={product.title}
-                className="product-card"
-                style={{ width: '20%' }}
-              >
-                <img
-                  src={product.imageUrl}
-                  className="image"
-                  alt={product.title}
-                />
-                <h4 className="title">{product.title}</h4>
-                <h5 className="price">
-                  {ethers.utils.formatEther(product.price)} ETH
-                </h5>
-                <h5 className="seller">Seller: {product.seller}</h5>
-              </div>
-            ))}
-        {!isLoading && products.length === 0 && <div>No products found</div>}
-      </div>
+      <ProductShowcase products={products} isLoading={isLoading} />
     </div>
   )
 }

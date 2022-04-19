@@ -1,3 +1,5 @@
+import { ethers } from 'ethers'
+
 export const CONTRACT_ADDRESS = '0x3AA23e35AD654aB03a943b7A10656681C970f6a7'
 export const CONTRACT_ABI = [
   {
@@ -565,3 +567,17 @@ export const CONTRACT_ABI = [
     type: 'function',
   },
 ]
+
+export function convertABI(ABI) {
+  const newABI = new ethers.utils.Interface(ABI)
+  return newABI.format()
+}
+
+export function getMarketplaceContract() {
+  const provider = new ethers.providers.Web3Provider(window.ethereum)
+  return new ethers.Contract(
+    CONTRACT_ADDRESS,
+    convertABI(CONTRACT_ABI),
+    provider,
+  )
+}

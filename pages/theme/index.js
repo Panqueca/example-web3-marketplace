@@ -36,8 +36,8 @@ export const theme = makeTheme({
   colors: {
     text: '#000',
     background: '#fff',
-    primary: '#07c',
-    secondary: '#30c',
+    primary: '#212121',
+    secondary: '#666',
     muted: '#f6f6f6',
   },
   styles: {

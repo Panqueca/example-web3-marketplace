@@ -17,7 +17,6 @@ const ProductBox = ({ product }) => {
     if (product.quantity > 0 && buyQuantity > 0) {
       const finalPrice = ethers.utils.formatEther(product.price) * buyQuantity
       const finalWeiPrice = ethers.utils.parseEther(finalPrice.toString())
-      console.log({ finalPrice, finalWeiPrice })
       const contract = getMarketplaceContract()
       const contractWithSigner = contract.connect(getProvider().getSigner())
       contractWithSigner.buyMarketItem(product.id, buyQuantity, {

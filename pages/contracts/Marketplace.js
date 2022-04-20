@@ -573,8 +573,12 @@ export function convertABI(ABI) {
   return newABI.format()
 }
 
+export function getProvider() {
+  return new ethers.providers.Web3Provider(window.ethereum)
+}
+
 export function getMarketplaceContract() {
-  const provider = new ethers.providers.Web3Provider(window.ethereum)
+  const provider = getProvider()
   return new ethers.Contract(
     CONTRACT_ADDRESS,
     convertABI(CONTRACT_ABI),

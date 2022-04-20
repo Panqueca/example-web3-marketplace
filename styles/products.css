@@ -32,3 +32,28 @@
 .product-card .image {
   width: 100%;
 }
+
+.buy-button {
+  padding: 0px 15px;
+  border-radius: 4px;
+  border: none;
+  background-color: #00b432;
+  color: #fff;
+  height: 30px;
+  width: 150px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.buy-button:hover {
+  background-color: #008625;
+}
+
+.buy-button-disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.buy-button-disabled:hover {
+  background-color: #ccc;
+}
